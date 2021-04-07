@@ -20,6 +20,7 @@ def sha1(content, hash):
             print("Hash cracked, the decoded string is : " + content[i])
             break
 
+
 def sha256(content, hash):
     print("Trying to crack the hash " + hash[0] + "...")
     for i in range(0, len(content)):
@@ -27,6 +28,7 @@ def sha256(content, hash):
         if(result.hexdigest().lower() == hash[0].lower()):
             print("Hash cracked, the decoded string is : " + content[i])
             break
+
 
 def nltm(content, hash):
     print("Trying to crack the hash " + hash[0] + "...")
