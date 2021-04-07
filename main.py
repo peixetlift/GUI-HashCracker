@@ -3,7 +3,6 @@ import time
 import argparse
 from time import sleep
 import hashing
-import bruteforce
 
 # parsing arguments from terminal input
 parser = argparse.ArgumentParser()

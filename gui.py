@@ -6,30 +6,36 @@ import time
 import guihashing
 
 
-def decrypt():
+def load_file():
     filename = filedialog.askopenfilename(initialdir ="/home/ubuntu",title ="Select a file", filetypes =(("Text files", "*.txt*"),("all files","*.*")))
-    hash[0] = hash_textbox.get()
-    with open(filename, errors='ignore') as f:
-        content = f.read().splitlines()
-        content_label.configure(text=filename)
-        start = time.time()
-        if(algorithm_textbox.get() == 'sha1'):
-            result = guihashing.guisha1(content, hash)
-        elif(algorithm_textbox.get() == 'md5'):
-            result = guihashing.guimd5(content, hash)
-        elif(algorithm_textbox.get() == 'sha256'):
-            result = guihashing.guisha256(content, hash)
-        elif(algorithm_textbox.get() == 'nltm'):
-            result = guihashing.guinltm(content, hash)
-        output_label.configure(text="Hash cracked : " + result)
-        end = time.time()
-        time_label.configure(text="Time elapsed : " + str(end-start))
-        
-        #show time elapsed
+    wordlist[0] = filename
+    content_label.configure(text=filename)
 
+def decrypt(is_open,hashstr):
+    hashstr=hash_textbox.get()
+    if(is_open == False):    
+        with open(wordlist[0], errors='ignore') as f:
+            content = f.read().splitlines()
+            is_open = True
+
+    start = time.time()
+    if(algorithm_textbox.get().lower() == 'sha1'):
+        result = guihashing.guisha1(content, hashstr)
+    elif(algorithm_textbox.get().lower() == 'md5'):
+        result = guihashing.guimd5(content, hashstr)
+    elif(algorithm_textbox.get().lower() == 'sha256'):
+        result = guihashing.guisha256(content, hashstr)
+    elif(algorithm_textbox.get().lower() == 'nltm'):
+        result = guihashing.guinltm(content, hashstr)
+    output_label.configure(text="Hash cracked : " + str(result))
+    end = time.time()
+    time_label.configure(text="Time elapsed : " + str(end-start))
     
 
-hash = [""]
+    
+is_open = False
+wordlist = [""]
+hashstr = ""
 
 # window
 window = tkinter.Tk()
@@ -42,6 +48,7 @@ window.grid_columnconfigure(4, weight=1)
 window.grid_rowconfigure(0, weight=1)
 window.grid_rowconfigure(6, weight=1)
 window.grid_rowconfigure(8, weight=1)
+window.grid_rowconfigure(10, weight=1)
 
 # labels
 title_label = tkinter.Label(window, text="Decrypt hashes")
@@ -58,15 +65,15 @@ hash_label = tkinter.Label(text="")
 output_label = tkinter.Label(text="")
 output_label.grid(row=7, column=2)
 time_label = tkinter.Label(text="")
-time_label.grid(row=7, column=3)
+time_label.grid(row=9, column=2)
 
 
 
 # buttons
-load_wordlist_button = tkinter.Button(window, text="Select wordlist and decrypt", padx=5, pady=5, command=lambda: decrypt())
+load_wordlist_button = tkinter.Button(window, text="Select wordlist", padx=5, pady=5, command=lambda: load_file())
 load_wordlist_button.grid(row=4, column=2)
-
-
+decrypt_button = tkinter.Button(window, text="Decrypt", padx=5, pady=5, command=lambda: decrypt(is_open,hashstr))
+decrypt_button.grid(row=4, column=3)
 # textboxes
 hash_textbox = tkinter.Entry(window)
 hash_textbox.grid(row=3, column=2)
