@@ -15,3 +15,4 @@ python3 gui.py
 1st - Specify hashing algorithm <br>
 2nd - Specify hash to be cracked<br>
 3rd - Select a wordlist<br>
+4th - Decrypt hash<br>
