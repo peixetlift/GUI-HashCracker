@@ -48,8 +48,9 @@ window.geometry("700x450")
 window.title("HASH CRACKER")
 
 # grid configuration
-window.grid_columnconfigure(0, weight=1)
-window.grid_columnconfigure(4, weight=1)
+for i in range(0,5):
+    window.grid_columnconfigure(i, weight=1)
+    
 for i in range(0, 15):
     window.grid_rowconfigure(i, weight=1)
 
