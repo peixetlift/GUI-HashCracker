@@ -1,4 +1,4 @@
-# Usage for console verison
+# Usage for console version
 
 ```
 python3 main.py -f <hashfile> -w <wordlist> -m <hashing algorithm>
