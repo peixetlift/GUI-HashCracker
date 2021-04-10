@@ -14,7 +14,7 @@ python3 console-cracker.py -m decrypt -f <hashfile> -w <wordlist> -a <hashing al
 -p : Specify the word/password that you want to encrypt<br>
 
 ```
-python3 console-cracker.py -m decrypt -p <word> -a <hashing algorithm>
+python3 console-cracker.py -m encrypt -p <word> -a <hashing algorithm>
 ```
 
 # Usage for GUI version
