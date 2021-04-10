@@ -3,15 +3,15 @@
 ### Decrypt mode (-m decrypt) :
 -f : specify the hash that has to be cracked (in .txt format)<br>
 -w : specify the wordlist (dictionary) to brute-force<br>
--a : Specify the hashing algorithm (Supports md5,sha1,sha256 and NLTM)
+-a : Specify the hashing algorithm (Supports md5,sha1,sha256 and NLTM)<br>
 
 ```
 python3 console-cracker.py -m decrypt -f <hashfile> -w <wordlist> -a <hashing algorithm>
 ```
 
 ### Encrypt mode (-m encrypt) :
--a : Specify the hashing algorithm (Supports md5,sha1,sha256 and NLTM)
--p : Specify the word/password that you want to encrypt
+-a : Specify the hashing algorithm (Supports md5,sha1,sha256 and NLTM)<br>
+-p : Specify the word/password that you want to encrypt<br>
 
 ```
 python3 console-cracker.py -m decrypt -p <word> -a <hashing algorithm>
