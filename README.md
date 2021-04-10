@@ -33,7 +33,7 @@ python3 gui-cracker.py
 
 1st - Specify hashing algorithm <br>
 2nd - Specify word to encrypt<br>
-4th - Encrypt (Click the button)<br>
+3rd - Encrypt (Click the button)<br>
 
 ***
 
